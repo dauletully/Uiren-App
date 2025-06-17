@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var selected = 2
     var body: some View {
-        TabView {
+        TabView(selection: $selected) {
             ListView()
                 .padding(.horizontal, 16)
                 .tag(1)
@@ -17,7 +18,8 @@ struct ContentView: View {
                     Image(systemName: "list.dash")
                     Text("List")
                 }
-            Text("Words")
+            WordsView()
+                .padding(.horizontal, 16)
                 .tag(2)
                 .tabItem {
                     Image(systemName: "textformat.abc")
